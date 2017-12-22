@@ -33,7 +33,7 @@ class App extends Component {
 
 	state = {
 
-		magasin_valid: true,
+		magasin_valid: false,
 		name: "",
 		image: "",
 		price: "",
