@@ -76,7 +76,7 @@ export default function reducer(state = initialState, action)
 				items[action.payload],
 				)
 			//panier[action.payload].panier = panier[action.payload].panier +1;
-			items[action.payload].stock = items[action.payload].stock -1;
+			//items[action.payload].stock = items[action.payload].stock -1;
 			return {
 				...state,
 				panier: panier,
