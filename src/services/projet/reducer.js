@@ -75,8 +75,10 @@ export default function reducer(state = initialState, action)
 			panier.push(
 				items[action.payload],
 				)
+
 			//panier[action.payload].panier = panier[action.payload].panier +1;
 			//items[action.payload].stock = items[action.payload].stock -1;
+
 			return {
 				...state,
 				panier: panier,
@@ -88,7 +90,7 @@ export default function reducer(state = initialState, action)
 			var {panier} = state;
 			var {items} = state;
 			panier[action.payload].panier = panier[action.payload].panier +1;
-			items[action.payload].stock = items[action.payload].stock -1;
+			//items[action.payload].stock = items[action.payload].stock -1;
 			return {
 				...state,
 				panier: panier
@@ -99,7 +101,7 @@ export default function reducer(state = initialState, action)
 			var {panier} = state;
 			var {items} = state;
 			panier[action.payload].panier = panier[action.payload].panier -1;
-			items[action.payload].stock = items[action.payload].stock +1;
+			//items[action.payload].stock = items[action.payload].stock +1;
 			return {
 				...state,
 				panier: panier
@@ -156,14 +158,49 @@ export default function reducer(state = initialState, action)
 				}
 			})
 
+			return {
+				...state,
+				items: items
+			};
+			break;
 
 
+
+		case types.INCREMENT_STOCK_2:
+		var {items} = state;
+		var {panier} = state;
+
+			items.forEach((el, i, arr) => {
+				if (el.id === action.id){
+					arr[i].stock = arr[i].stock +1
+				}
+			})
 
 			return {
 				...state,
 				items: items
 			};
 			break;
+
+
+		case types.DECREMENT_STOCK_2:
+		var {items} = state;
+		var {panier} = state;
+
+			items.forEach((el, i, arr) => {
+				if (el.id === action.id){
+					arr[i].stock = arr[i].stock -1
+				}
+			})
+
+			return {
+				...state,
+				items: items
+			};
+			break;
+
+
+
 
 
 
