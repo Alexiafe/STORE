@@ -20,6 +20,9 @@ import { valide_commande } from "./services/projet/actions";
 import { valide_edit } from "./services/projet/actions";
 import { setPanier1 } from "./services/projet/actions";
 import { setPanier2 } from "./services/projet/actions";
+import { increment_stock2 } from "./services/projet/actions";
+import { decrement_stock2 } from "./services/projet/actions";
+
 
 
 
@@ -187,7 +190,9 @@ class App extends Component {
 																		width: 30,
 																		height: 30,
 																	}}
-																	onClick={() => this.props.decrement_panier(index)}
+																	onClick={() => {this.props.decrement_panier(index);
+																					this.props.increment_stock2(achat.id)}
+																	}
 																>
 																-
 																</button>
@@ -196,7 +201,9 @@ class App extends Component {
 																		width: 30,
 																		height: 30,
 																	}}
-																	onClick={() => {this.props.increment_panier(index)}}
+																	onClick={() => {this.props.increment_panier(index)
+																					this.props.decrement_stock2(achat.id)}
+																	}
 																>
 																+
 																</button>
@@ -208,7 +215,9 @@ class App extends Component {
 																	height: 30,
 																}}
 
-																onClick={() => {this.props.increment_panier(index)}}
+																onClick={() => {this.props.increment_panier(index)
+																				this.props.decrement_stock2(achat.id)}
+																	}
 															>
 															+
 															</button>
@@ -237,7 +246,8 @@ class App extends Component {
 															height: 30,
 														}}
 
-														onClick={() => { this.props.decrement_panier(index)}
+														onClick={() => {this.props.decrement_panier(index);
+																		this.props.increment_stock2(achat.id)}
 														}
 													>
 													-
@@ -592,6 +602,9 @@ const mapActionsToProps = (dispatch) => ({
 	valide_edit: bindActionCreators(valide_edit, dispatch),
 	setPanier1: bindActionCreators(setPanier1, dispatch),
 	setPanier2: bindActionCreators(setPanier2, dispatch),
+	increment_stock2: bindActionCreators(increment_stock2, dispatch),
+	decrement_stock2: bindActionCreators(decrement_stock2, dispatch),
+	
 });
 
 
