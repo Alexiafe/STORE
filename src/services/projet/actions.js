@@ -104,6 +104,24 @@ export function setPanier2(id) {
 	};
 };
 
+export function increment_stock2(id) {
+	return (dispatch, state) => {
+		dispatch({
+			type: types.INCREMENT_STOCK_2,
+			id: id
+		});
+	};
+};
+
+
+export function decrement_stock2(id) {
+	return (dispatch, state) => {
+		dispatch({
+			type: types.DECREMENT_STOCK_2,
+			id: id
+		});
+	};
+};
 
 
 
